@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     if (this.oRoute.snapshot.data.message) {
       localStorage.setItem("user", this.oRoute.snapshot.data.message);
     } else {
-      localStorage.clear;
+      localStorage.clear();
     }
   }
 

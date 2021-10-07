@@ -22,7 +22,7 @@ export class LogoutComponent implements OnInit {
       this.strUsuarioSession = this.oRoute.snapshot.data.message;
       localStorage.setItem("user", this.oRoute.snapshot.data.message);
     } else {
-      localStorage.clear;
+      localStorage.clear();
       oRouter.navigate(['/home']);
     }
   }

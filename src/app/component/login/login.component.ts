@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("user", oRoute.snapshot.data.message);
       oRouter.navigate(['/home']);
     } else {
-      localStorage.clear;
+      localStorage.clear();
     }
 
     this.formularioLogin = <FormGroup>this.FormBuilder.group({

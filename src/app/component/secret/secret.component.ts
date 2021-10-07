@@ -15,7 +15,7 @@ export class SecretComponent implements OnInit {
     if (oRoute.snapshot.data.message) {
       localStorage.setItem("user", oRoute.snapshot.data.message);
     } else {
-      localStorage.clear;
+      localStorage.clear();
       oRouter.navigate(['/home']);
     }
   }

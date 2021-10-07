@@ -1,18 +1,19 @@
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './component/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LogoutComponent } from './logout/logout.component';
-import { SecretComponent } from './secret/secret.component';
+import { HomeComponent } from './component/home/home.component';
+import { LogoutComponent } from './component/logout/logout.component';
+import { SecretComponent } from './component/secret/secret.component';
+import { SessionResolver } from './resolve/session.resolve';
+
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent},  
-  { path: 'login', component: LoginComponent },  
-  { path: 'logout', component: LogoutComponent },  
-  { path: 'secret', component: SecretComponent },
-  { path: '**', component: HomeComponent}
+  { path: '', component: HomeComponent, resolve: { message: SessionResolver } },
+  { path: 'home', component: HomeComponent, resolve: { message: SessionResolver } },
+  { path: 'login', component: LoginComponent, resolve: { message: SessionResolver } },
+  { path: 'logout', component: LogoutComponent, resolve: { message: SessionResolver } },
+  { path: 'secret', component: SecretComponent, resolve: { message: SessionResolver } }
 ];
 
 @NgModule({

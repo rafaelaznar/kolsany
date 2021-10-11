@@ -31,17 +31,17 @@ export class SessionService {
     return throwError(errorMessage);
   }
 
-  login(loginData: any): Observable<String> {
+  login(loginData: String): Observable<String> {
     if (environment) console.log("SessionService: login");
-    return this.http.post(this.sURL, loginData, httpOptions).pipe(
-      tap((u: any) => console.log("session.service login HTTP request executed", u)),
+    return this.http.post<String>(this.sURL, loginData, httpOptions).pipe(
+      tap((u: String) => console.log("session.service login HTTP request executed", u)),
       retry(1),
       catchError(this.handleError));
   }
 
-  logout(): Observable<any> {
+  logout(): Observable<String> {
     if (environment) console.log("SessionService: logout");
-    return this.http.delete(this.sURL, httpOptions).pipe(
+    return this.http.delete<String>(this.sURL, httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
   }
@@ -49,7 +49,7 @@ export class SessionService {
   check(): Observable<String> {
     if (environment) console.log("SessionService: check");
     return this.http.get<String>(this.sURL + '?op=check', httpOptions).pipe(
-      tap((u: any) => console.log("session.service check HTTP request executed: ", u)),
+      tap((u: String) => console.log("session.service check HTTP request executed: ", u)),
       shareReplay(),
       catchError(this.handleError)
     )

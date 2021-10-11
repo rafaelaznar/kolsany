@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
     this.formularioLogin = <FormGroup>this.FormBuilder.group({
       login: ['', [Validators.required, Validators.minLength(5)]],
-      password: ['', Validators.required, Validators.minLength(5)]
+      password: ['', [Validators.required, Validators.minLength(5)]]
     });
 
   }

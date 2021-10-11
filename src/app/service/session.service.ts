@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { API_URL, environment, httpOptions } from 'src/environments/environment';
@@ -54,5 +54,7 @@ export class SessionService {
       catchError(this.handleError)
     )
   }
+
+  //aqui va el getSecret ...
 
 }

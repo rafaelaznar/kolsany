@@ -13,7 +13,7 @@ export class SecretComponent implements OnInit {
     private oRoute: ActivatedRoute,
     private oRouter: Router) {
     if (oRoute.snapshot.data.message) {
-      localStorage.setItem("user", oRoute.snapshot.data.message);
+      localStorage.setItem("user", oRoute.snapshot.data.message);      
     } else {
       localStorage.clear();
       oRouter.navigate(['/home']);
@@ -21,6 +21,7 @@ export class SecretComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // llamada al secret: subscribirse al observable
   }
   goBack() {
     this._location.back();

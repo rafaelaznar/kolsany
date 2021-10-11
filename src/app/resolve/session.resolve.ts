@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, Router } from '@angular/router';
+import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { SessionService } from '../service/session.service';
 

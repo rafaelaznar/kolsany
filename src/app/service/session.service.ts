@@ -27,7 +27,7 @@ export class SessionService {
       // Server-side errors
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
       if (environment) console.log("SessionService: error: " + errorMessage);
-    }    
+    }
     return throwError(errorMessage);
   }
 
@@ -55,6 +55,13 @@ export class SessionService {
     )
   }
 
-  //aqui va el getSecret ...
+  secret(): Observable<string> {
+    if (environment) console.log("SessionService: getSecret");
+    return this.http.get<string>(this.sURL + '?op=get', httpOptions).pipe(
+      tap((u: string) => console.log("session.service check HTTP request executed: ", u)),
+      shareReplay(),
+      catchError(this.handleError)
+    )
+  }
 
 }
